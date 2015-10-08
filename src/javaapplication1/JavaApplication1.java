@@ -17,20 +17,26 @@ public class JavaApplication1 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        int[] array = {1, 4, 7, 1, 1, 8, 4, 1, 4, 9};
+        Integer[] array = {1, 4, 7, 1, 1, 8, 4, 1, 4, 9};
+        String[] array1 = {"Ana","Juan","Pedro","Juan","Pedro","Juan","Pedro"};
         
-        Histogram histo = new Histogram(array);
+        Histogram<Integer> histo = new Histogram(array);
         HashMap<Integer, Integer> histogram = histo.getHisto();
-
+        
+        
+        Histogram<String> histo1 = new Histogram(array1);
+        HashMap<String,Integer> histogram1 = histo1.getHisto();
         
 
-        for (Integer key : histogram.keySet()) {
+        for (Object key : histogram.keySet()) {
             System.out.println(key + ": "+ histogram.get(key));
+        }
+        
+        for (Object key : histogram1.keySet()) {
+            System.out.println(key + ": "+ histogram1.get(key));
         }
 
         // TODO code application logic here
     }
 
-    private static void histograma(int[] array) {
-    }
 }

@@ -6,20 +6,18 @@ package javaapplication1;
 
 import java.util.HashMap;
 
-/**
- *
- * @author usuario
- */
-public class Histogram {
-    
-    private final int[] vector;
 
-    public Histogram(int[] vector) {
+public class Histogram<T> {
+    
+    private final T[] vector;
+
+    public Histogram(T[] vector) {
         this.vector = vector;
     }
+
     
-    public HashMap<Integer,Integer> getHisto(){
-        HashMap<Integer,Integer> map = new HashMap();
+    public HashMap<T,Integer> getHisto(){
+        HashMap<T,Integer> map = new HashMap();
         for(int i = 0; i < vector.length; i++){
             if(!map.containsKey(vector[i])){
                 map.put(vector[i], 1);
