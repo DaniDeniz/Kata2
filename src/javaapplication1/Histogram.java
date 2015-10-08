@@ -1,31 +1,21 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package javaapplication1;
 
 import java.util.HashMap;
-
+import java.util.Set;
 
 public class Histogram<T> {
-    
-    private final T[] vector;
 
-    public Histogram(T[] vector) {
-        this.vector = vector;
+    private final HashMap<T, Integer> map = new HashMap<>();
+
+    public Integer get(Object key) {
+        return map.get(key);
     }
 
-    
-    public HashMap<T,Integer> getHisto(){
-        HashMap<T,Integer> map = new HashMap();
-        for(int i = 0; i < vector.length; i++){
-            if(!map.containsKey(vector[i])){
-                map.put(vector[i], 1);
-            } else {
-                map.put(vector[i], map.get(vector[i])+1);
-            }
-        }
-        return map;
+    public Set<T> keySet() {
+        return map.keySet();
     }
-    
+
+    public void increment(T key) {
+        map.put(key, map.containsKey(key) ? map.get(key)+1: 1);
+    }
 }

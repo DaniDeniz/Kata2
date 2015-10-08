@@ -20,20 +20,19 @@ public class JavaApplication1 {
         Integer[] array = {1, 4, 7, 1, 1, 8, 4, 1, 4, 9};
         String[] array1 = {"Ana","Juan","Pedro","Juan","Pedro","Juan","Pedro"};
         
-        Histogram<Integer> histo = new Histogram(array);
-        HashMap<Integer, Integer> histogram = histo.getHisto();
+        Histogram<Integer> histo = BuildHisto.cumputHisto(array);
         
         
-        Histogram<String> histo1 = new Histogram(array1);
-        HashMap<String,Integer> histogram1 = histo1.getHisto();
+        
+        Histogram<String> histo1 = BuildHisto.cumputHisto(array1);
         
 
-        for (Object key : histogram.keySet()) {
-            System.out.println(key + ": "+ histogram.get(key));
+        for (Object key : histo.keySet()) {
+            System.out.println(key + ": "+ histo.get(key));
         }
         
-        for (Object key : histogram1.keySet()) {
-            System.out.println(key + ": "+ histogram1.get(key));
+        for (Object key : histo1.keySet()) {
+            System.out.println(key + ": "+ histo1.get(key));
         }
 
         // TODO code application logic here
